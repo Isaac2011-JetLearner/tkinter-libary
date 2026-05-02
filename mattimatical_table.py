@@ -5,6 +5,17 @@ screen = tkinter.Tk()
 screen.title("Matimatical Table")
 screen.geometry("500x500")
 
+def calculations():
+    number = int(combo_box.get())
+    number_2 = int(val.get())
+    multiples = ""
+    for i in range(1,number_2+1):
+        answer = number*i
+        multiples+=str(number)+"X"+str(i)+"="+str(answer)+"\n"
+    label_3 = tkinter.Label(screen,text = multiples )
+    label_3.grid(row= 6, column= 2)
+
+
 label_1 = tkinter.Label(screen,text="Matimatical Table")
 label_2 =tkinter.Label(screen,text="Number and Range")
 combo_box = tkinter.ttk.Combobox(screen)
@@ -12,11 +23,12 @@ numbers = []
 for i in range(1,101):
     numbers.append(i)
 combo_box["values"] = numbers
-button = tkinter.Button(screen,text="Generate")
+button = tkinter.Button(screen,text="Generate",command= calculations)
 val = tkinter.IntVar()
 radio_button_1 = tkinter.Radiobutton(screen,text="10",variable= val,value=10)
 radio_button_2 = tkinter.Radiobutton(screen,text="20",variable= val,value= 20)
 radio_button_3 = tkinter.Radiobutton(screen,text="30",variable= val, value= 30)
+
 
 
 label_1.grid(row= 1,column=2)
